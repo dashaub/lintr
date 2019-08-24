@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# lintr: A command tool for static R code analysis
+# (c) 2019 David Shaub
+#
+# Usage: "lintr file.R"
+# Lints the specified file.R file
+#
+# This file is copyright under GPLv3.
+# Please see LICENSE file for your rights under this license.
+
+if [ -z "${1+x}" ]; then
+    echo 'Usage: lintr file.R'
+    exit 1
+fi
+
+Rscript -e "lintr::lint(\"${1}\")"

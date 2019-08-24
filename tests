@@ -1,0 +1,27 @@
+#!/usr/bin/env bats
+
+# Unit tests using [bats](https://github.com/sstephenson/bats)
+
+@test "invoking lintr without file prints an error" {
+  run ./lintr
+  [ "$status" -eq 1 ]
+  [ "$output" = "Usage: lintr file.R" ]
+}
+
+@test "invoking lintr with a nonexistent filename prints an error" {
+  run ./lintr no_file.R
+  num_lines=$(echo "${output}" | wc -l)
+  [ "${num_lines}" -gt 1 ]
+  [ "$status" -eq 1 ]
+  [ "${lines[0]}" = 'Error in file(con, "r") : cannot open the connection' ]
+}
+
+@test "invoking lintr on the supplied example.R file functions correctly" {
+  run ./lintr example.R
+  num_lines=$(echo "${output}" | wc -l)
+  [ "${num_lines}" -gt 1 ]
+  [ "$status" -eq 0 ]
+  # The example.R contains an extra trailing newline, so this should be the final error
+  final_error=$(echo "${output}" | tail -n3 | head -n1)
+  [ "${final_error}" = 'example.R:13:1: style: Trailing blank lines are superfluous.' ]
+}
