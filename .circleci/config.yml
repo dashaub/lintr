@@ -8,12 +8,18 @@ jobs:
       - checkout
 
       - run:
-          name: "Installing lintr from CRAN"
-          command: Rscript -e 'install.packages("lintr")'
-
-      - run:
           name: "Installing bats"
           command: apt update && apt install -y bats
+
+      - run:
+          name: "Install binary R packages from Debian to skip compilaiton"
+          command: |
+              apt install -y r-cran-testthat r-cran-digest r-cran-jsonlite
+              r-cran-igraph r-cran-rstudioapi
+
+      - run:
+          name: "Installing lintr from CRAN"
+          command: Rscript -e 'install.packages("lintr")'
 
       - run:
           name: "Running tests"
