@@ -27,7 +27,7 @@ $ Rscript -e 'install.packages("lintr")'
 
 Now install the `lintr` script
 ```
-$ sudo curl https://raw.github.com/dashaub/lintr/master/lintr -Lo /opt/lintr && sudo chmod a+x /opt/lintr
+$ sudo curl https://raw.github.com/dashaub/lintr/master/lintr -Lo /usr/local/bin/lintr && sudo chmod a+x /usr/local/bin/lintr
 ```
 
 # Usage

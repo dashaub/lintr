@@ -6,12 +6,15 @@ jobs:
       - image: rocker/r-base:latest
     steps:
       - checkout
+
       - run:
-        name: "Installing lintr from CRAN"
-        command: Rscript -e 'install.packages("lintr")'
+          name: "Installing lintr from CRAN"
+          command: Rscript -e 'install.packages("lintr")'
+
       - run:
-        name: "Installing bats"
-        command: apt update && apt install -y bats
+          name: "Installing bats"
+          command: apt update && apt install -y bats
+
       - run:
-        name: "Running tests"
-        command: bats tests
+          name: "Running tests"
+          command: bats tests
