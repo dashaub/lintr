@@ -23,4 +23,4 @@ jobs:
 
       - run:
           name: "Running tests"
-          command: bats tests
+          command: pwd && ls -la && bats tests
