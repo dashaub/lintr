@@ -6,7 +6,7 @@ a <- a[ 1 ]
 message <- 'hello world'
 myFunc <- function()
 {
-    return(a)
+    return(missing_var)
 }
 
 myFunc()
