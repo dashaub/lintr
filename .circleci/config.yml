@@ -12,9 +12,9 @@ jobs:
           command: apt update && apt install -y bats
 
       - run:
-          name: "Install binary R packages from Debian to skip compilaiton"
+          name: "Install binary R packages from Debian to skip compilation"
           command: |
-              apt install -y r-cran-testthat r-cran-digest r-cran-jsonlite
+              apt install -y r-cran-testthat r-cran-digest r-cran-jsonlite \
               r-cran-igraph r-cran-rstudioapi
 
       - run:
