@@ -6,7 +6,7 @@ A command tool wrapping the R package "lintr" for static R code analysis
 
 
 # Why?
-The ["linter"](https://github.com/jimhester/lintr#available-linters) package from Jim Hester is an excellent R package that lints R code and has integrations with RStudio, Emacs, Vim, Sublime, and Atom. This project is a very simple wrapper around this so that you can use the tool from the command line.
+The ["linter"](https://github.com/jimhester/lintr#available-linters) package from Jim Hester is an excellent R package that lints R code and has integrations with RStudio, Emacs, Vim, Sublime, and Atom. This project is a very simple wrapper around this that creates a tool that can be used from the command line.
 
 # Installation
 
@@ -18,6 +18,8 @@ $ sudo apt install lintr
 
 ## Manual
 
+For now, the tool can be manually installed.
+
 The command line tool requires `r` and the "lintr" CRAN package. Install R according to the directions provided on the [R-project](https://www.r-project.org/). The "lintr" R package can then be installed from CRAN using
 ```
 $ Rscript -e 'install.packages("lintr")'
@@ -25,14 +27,14 @@ $ Rscript -e 'install.packages("lintr")'
 
 Now install the `lintr` script
 ```
-$ sudo curl https://raw.github.com/dashaub/lintr/master/lintr -Lo /opt/lintr
+$ sudo curl https://raw.github.com/dashaub/lintr/master/lintr -Lo /opt/lintr && sudo chmod a+x /opt/lintr
 ```
 
 # Usage
 
 We can lint the provided `example.R` file.
 ```
-$ lintr example.R 
+$ lintr example.R
 example.R:2:3: style: Use <-, not =, for assignment.
 a = 3
   ^

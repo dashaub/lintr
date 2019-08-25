@@ -11,7 +11,7 @@ jobs:
           command: Rscript -e 'install.packages("lintr")'
       - run:
           name: "Installing bats"
-          command: apt install -y bats
+          command: apt update && apt install -y bats
       - run:
         name: "Running tests"
         command: bats tests
