@@ -14,7 +14,7 @@ jobs:
       - run:
           name: "Install binary R packages from Debian to skip compilation"
           command: |
-              apt install -y libcurl4-openssl-dev libcurl4-gnutls-dev
+              apt install -y libcurl4-openssl-dev libssl-dev
 
       - run:
           name: "Installing lintr from CRAN"
