@@ -23,5 +23,9 @@ jobs:
           command: Rscript -e 'install.packages("lintr")'
 
       - run:
+          name: "Verifying that the lintr package can be loaded"
+          command: Rscript -e 'library("lintr")'
+
+      - run:
           name: "Running tests"
-          command: ./lintr example.R && echo $? && bats tests
+          command: bats tests
