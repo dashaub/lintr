@@ -24,7 +24,7 @@ jobs:
 
       - run:
           name: "Verifying that the lintr package can be loaded"
-          command: Rscript -e 'library("lintr")'
+          command: Rscript -e 'require("lintr")'
 
       - run:
           name: "Running tests"

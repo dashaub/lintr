@@ -19,6 +19,7 @@
 
 @test "invoking lintr on the supplied example.R file functions correctly" {
   run ./lintr example.R
+  echo "${output}"
   num_lines=$(echo "${output}" | wc -l)
   [ "${num_lines}" -gt 1 ]
   [ "${status}" -eq 0 ]
