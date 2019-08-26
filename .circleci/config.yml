@@ -27,5 +27,8 @@ jobs:
           command: Rscript -e 'require("lintr")'
 
       - run:
+          name: "Running example"
+          command: ./lintr example.R
+      - run:
           name: "Running tests"
           command: bats tests
